@@ -1,11 +1,10 @@
 import React from "react";
 
-function Button({ type,title }) {
+function Button({ title, scrolling }) {
   return (
-    <div className={type === "rounded" ? "button rounded" : "button"}>
-        <p>{title}</p>
+    <div className={scrolling ? "button rounded scrolling" : "button rounded"}>
+      <p>{title}</p>
     </div>
   );
 }
-
 export default Button;

@@ -9,26 +9,48 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height:80px;
+  min-height:80px;
   align-items: center;
   justify-content:center;
   z-index: 10;
 }
+
 .nav__wrapper{
-  max-width: 1290px;
   width: 100%;
   height: 100%;
   display:flex;
   align-items: center;
   justify-content:space-between;
+  transition: all 0.3s ease-in-out;
+  min-height: 80px;
+}
+
+.scrolled{
+  background-color: #000;
 }
 
 .nav__headWrapper{
   flex: 1;
+  align-items: center;
+  justify-content:center;
+  display: flex;
+}
+.nav__head{
+  flex: 1;
+  width: 100%;
+  display:flex;
+  flex-direction: row;
   color:white;
   align-items: center;
+  justify-content:center;
   text-align: center;
-  font-family: Trebuchet_MS;
+  font-family: "Trebuchet MS";
+}
+.menu{
+  color:white;
+  font-size: 18;
+  display:none;
+  cursor: pointer;
 }
 .nav__navigation{
   flex:2;
@@ -36,12 +58,36 @@
   align-items: center;
   justify-content: space-around;
 }
+.nav__sideNav{
+  display: none;
+  flex-direction: column;
+  transition: all 1s ease-in-out;
+  align-items: center;
+  justify-content:space-around;
+  background: black;
+  width:100%;
+  z-index: 10;
+}
+.nav__sideNav a{
+  color: white;
+  text-decoration: none;
+  font-family:'open sans';
+  font-size:15px;
+  margin-bottom: 10px;
+}
+.nav__sideNav div{
+  margin-bottom: 10px;
+}
 .nav__navigation a{
   color: black;
   text-decoration: none;
   font-family:'open sans';
   font-size:15px;
 }
+.scrolledLink a{
+  color: #fff;
+}
+
 .button{
   display: flex;
   width: 202px;
@@ -51,10 +97,16 @@
   justify-content: center;
   color: white;
   font-family: 'open sans';
+  font-weight: bold;
   cursor: pointer;
 }
 .rounded{
   border-radius: 24px;
+}
+
+.scrolling{
+  background: #fff;
+  color: #000;
 }
 
 .landing{
@@ -77,7 +129,7 @@
   top:50%;
   width:500px;
   height:500px;
-  transform: translateX(50%) translateY(-50%);
+  transform: translateX(30%) translateY(-50%);
   border-radius: 50%;
   border: 10px solid #000;
   background: #fff;
@@ -85,6 +137,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .landing__profile img{
   width:350px;
   height: 350px;
@@ -94,8 +147,147 @@
 }
 
 .landing__right{
+  position:relative;
   flex: 2;
+  padding: 0;
   height: 100%;
   min-height: 100vh;
   border-bottom: 10px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.landing__right__title{
+  display: flex;
+  flex-direction: column;
+  font-family:"Trebuchet MS";
+}
+.landing__right__title p:nth-child(1){
+  font-size: 100px;
+  font-weight: bold;
+}
+.landing__right__title p:nth-child(2){
+  text-align: center;
+  font-size: 25px;
+}
+.landing__right__title p span{
+  color:#754EF9;
+}
+
+.landing__right__social{
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  transform:rotate(90deg)
+}
+.landing__right__social p{
+  font-family: 'Open Sans', sans-serif;
+}
+.dash{
+  width:50px;
+  height: 2px;
+  background:#000;
+  margin:10px;
+}
+.icon{
+  margin:10px;
+  transform: rotate(-90deg);
+}
+
+.test{
+  min-height:100vh;
+}
+
+@media screen and (max-width:1100px){
+  .landing__profile{
+    width:350px;
+    height:350px;
+  }
+  .landing__profile img{
+    width:250px;
+    height: 250px;
+  }
+  .landing__right__title p:nth-child(1){
+    font-size: 80px;
+  }
+}
+@media screen and (max-width:1000px){
+  .landing__profile{
+    width:300px;
+    height:300px;
+  }
+  .landing__profile img{
+    width:200px;
+    height: 200px;
+  }
+  .landing__right__title p:nth-child(1){
+    font-size: 60px;
+  }
+}
+@media screen and (max-width:880px){
+  .landing__profile{
+    width:250px;
+    height:250px;
+  }
+  .landing__profile img{
+    width:200px;
+    height: 200px;
+  }
+  .landing__right__title p:nth-child(1){
+    font-size: 60px;
+    font-weight: bold;
+  }
+  .landing__right__social{
+    bottom: 0;
+    transform: rotate(0deg);
+  }
+  .icon{
+    margin:10px;
+    transform: rotate(0deg);
+  }
+}
+
+@media screen and (max-width:650px){
+  .landing{
+    flex-direction: column;
+  }
+  .landing__left{
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .landing__profile{
+    position: static;
+    transform:none;
+  }
+  .nav__navigation{
+    display: none;
+  }
+  .nav__headWrapper{
+    flex-direction:column;
+    display: flex;
+    flex:2;
+    align-items:center;
+    justify-content: space-between;
+    padding-left:50px;
+    padding-right: 50px;
+  }
+  .nav__head{
+    justify-content:space-between;
+  }
+  .menu{
+    display: inline;
+  }
+  .nav__sideNavEnable{
+    display: flex;
+    transition: all 1s ease-in-out;
+  }
+  /* .landing__right__social p{
+    color:#fff;
+  }
+  .dash{
+    background: #fff;
+  } */
 }
